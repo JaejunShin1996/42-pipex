@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 18:10:45 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/08/11 16:12:25 by jaeshin          ###   ########.fr       */
+/*   Created: 2023/07/12 16:11:21 by jaeshin           #+#    #+#             */
+/*   Updated: 2023/08/10 16:10:25 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define  PIPEX_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include "../libft/includes/libft.h"
-# include <stdio.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/wait.h>
-# include <sys/types.h>
-# include <sys/stat.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10000
+# endif
+
 # include <fcntl.h>
+# include <unistd.h>
 # include <stdlib.h>
 
-void	free_container(char **temp);
-char	*find_path(char *name, char **envp);
-char	*get_path(char *cmd, char **envp);
-int		open_file(char *file, int in_out);
+char	*get_next_line(int fd);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_bzero(void *str, size_t n);
+void	*ft_calloc(size_t nitems, size_t size);
+char	*ft_strjoin(char const *str1, char const *str2);
+size_t	ft_strlen(const char *str);
+char	*ft_strchr(const char *str, int c);
 
-#endif 
+#endif

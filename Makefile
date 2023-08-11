@@ -3,20 +3,17 @@ NAME	= 	pipex
 CC		= 	gcc
 CFLAGS	= 	-Wall -Wextra -Werror
 
-SRCS	= 	
-
-CFILES	= $(SRCS:%=%.c)
+SRCS	= 	sources/*.c \
+			libft/libft.a
 
 $(NAME):
-	$(CC) $(CFLAGS) $(CFILES) -L./includes -lft -o $(NAME)
-
-# $(NAME):
-# 	$(CC) $(CFLAGS) $(CFILES) -L./includes -lft_m2 -o $(NAME)
+		make all -C libft
+		$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 
 all: $(NAME)
 
 clean:
-	@rm -f $(NAME)
+		@rm -f $(NAME)
 
 fclean: clean
 
