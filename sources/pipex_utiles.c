@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 15:22:47 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/08/11 15:40:29 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/08/14 12:35:06 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	open_file(char *file, int in_out)
 		fd = open(file, O_RDONLY, 0777);
 	else if (in_out == 1)
 		fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
-	if (fd == -1)
+	if (fd < 0)
 		exit(1);
 	return (fd);
 }
