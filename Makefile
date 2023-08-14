@@ -14,6 +14,7 @@ all: $(NAME)
 
 clean:
 		@rm -f $(NAME)
+		@make fclean -C libft
 
 fclean: clean
 
