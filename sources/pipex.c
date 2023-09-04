@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:10:33 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/08/14 12:29:30 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/09/04 22:11:32 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,10 @@ int	main(int argc, char **argv, char **envp)
 		exit(1);
 	if (pid == 0)
 		child(argv, p_fd, envp);
-	parent(argv, p_fd, envp);
+	else if (pid > 0)
+	{
+		wait(NULL);
+		parent(argv, p_fd, envp);
+	}
 	return (0);
 }
